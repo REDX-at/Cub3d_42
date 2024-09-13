@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:28:37 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/08 01:23:00 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:26:10 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*skip_space(char *str, int flag)
 	int		j;
 	char	*tmp;
 
-	j = 0;
+	j = 3;
 	if (flag)
 		i = 2;
 	else

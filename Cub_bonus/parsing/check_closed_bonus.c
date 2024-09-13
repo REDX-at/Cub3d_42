@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_closed_bonus.c                               :+:      :+:    :+:   */
+/*   check_closed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:22:00 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/08/27 10:29:30 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/08/27 11:51:31 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ void	check_closed(t_alloc *alloc, int flag, int i, int j)
 				|| alloc->map[i][j + 1] == '\0' || alloc->map[i][j - 1] == '\0'
 				|| alloc->map[i + 1][j] == '\0' || alloc->map[i - 1][j] == '\0')
 				print_err_exit("Map Invalid : Floor not closed", alloc);
+		}
+		if (alloc->map[i][j] == 'D')
+		{
+			if (alloc->map[i][j + 1] == ' ' || alloc->map[i][j - 1] == ' '
+				|| alloc->map[i + 1][j] == ' ' || alloc->map[i - 1][j] == ' '
+				|| alloc->map[i][j + 1] == '\0' || alloc->map[i][j - 1] == '\0'
+				|| alloc->map[i + 1][j] == '\0' || alloc->map[i - 1][j] == '\0')
+				print_err_exit("Map Invalid : Door has no entry", alloc);
 		}
 	}
 	else
@@ -56,7 +64,7 @@ void	check_arround(t_alloc *alloc)
 		j = -1;
 		while (alloc->map[i][++j])
 		{
-			if (alloc->map[i][j] == '0')
+			if (alloc->map[i][j] == '0' || alloc->map[i][j] == 'D')
 				check_closed(alloc, 1, i, j);
 			if (alloc->map[i][j] == alloc->player)
 				check_closed(alloc, 0, i, j);

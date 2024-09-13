@@ -6,11 +6,17 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/08/23 15:01:35 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:58:21 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void	print_and_exit(char *message)
+{
+	printf("%s\n", message);
+	exit(1);
+}
 
 t_textures	*init_textures(t_data *data)
 {
@@ -22,10 +28,7 @@ t_textures	*init_textures(t_data *data)
 	
 	textures = malloc(sizeof(t_textures));
 	if (!textures)
-	{
-		printf("Failed to allocate memory for textures\n");
-		exit(1);
-	}
+		print_and_exit("Failed to allocate memory for textures");
 	textures->img = NULL;
 	textures->addr = NULL;
 	textures->width = 0;
@@ -41,24 +44,16 @@ void	load_textures(t_data *data, char *path, t_textures *textures)
 	int	fd;
 
 	fd = open(path, O_RDONLY);
+	printf("path: %s\n", path);
 	if (fd < 0)
-	{
-		printf("Failed to open texture file\n");
-		exit(1);
-	}
+		print_and_exit("Failed to open texture file");
 	close(fd);
 	textures->img = mlx_xpm_file_to_image(data->mlx, path, &textures->width, &textures->height);
 	if (!textures->img)
-	{
-		printf("Failed to load texture\n");
-		exit(1);
-	}
+		print_and_exit("Failed to load texture image");
 	textures->addr = mlx_get_data_addr(textures->img, &textures->bits_per_pixel, &textures->line_lenght, &textures->endian);
 	if (!textures->addr)
-	{
-		printf("Failed to get texture address\n");
-		exit(1);
-	}
+		print_and_exit("Failed to get texture address");
 }
 
 void    get_texture(t_data *data)

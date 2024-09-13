@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:44 by mkibous           #+#    #+#             */
-/*   Updated: 2024/08/24 17:36:45 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:13:26 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ void	check_extension(char *str)
 
 int    main(int argc, char **argv)
 {
-	// (void)argc;
-	// (void)argv;
 	t_alloc *alloc;
 	t_textures *textures;
 
@@ -98,6 +96,7 @@ int    main(int argc, char **argv)
 	textures = malloc(sizeof(t_textures));
 	init_alloc(alloc, argv);
 	get_map(alloc);
+	printf("Map-------------\n");
 	ft_execute(alloc);
 	out_clean(alloc);
 	return (0);

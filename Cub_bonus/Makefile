@@ -1,13 +1,14 @@
+
 NAME = cub3D
 B_NAME = cub3D_bonus
 SRC = main.c ./execute/execute.c ./Parsing/parsing.c ./Get_next_line/get_next_line.c \
 	./Get_next_line/get_next_line_utils.c ./parsing/first_element.c ./parsing/utils_parsing.c \
 	./parsing/utils_parsing_2.c ./parsing/check_valid_elem.c ./parsing/check_map.c ./parsing/utils_parsing_3.c \
 	./parsing/check_element_f_c.c ./parsing/check_closed.c ./execute/textures.c ./parsing/utils_check.c
-B_SRC = main_bonus.c ./execute/execute_bonus.c ./Parsing/parsing_bonus.c ./Get_next_line/get_next_line.c \
-	./Get_next_line/get_next_line_utils.c ./parsing/first_element_bonus.c ./parsing/utils_parsing_bonus.c \
-	./parsing/utils_parsing_2_bonus.c ./parsing/check_valid_elem_bonus.c ./parsing/check_map_bonus.c ./parsing/utils_parsing_3_bonus.c \
-	./parsing/check_element_f_c_bonus.c ./parsing/check_closed_bonus.c ./parsing/utils_check_bonus.c ./execute/textures_bonus.c \
+B_SRC = main_bonus.c ./execute/execute.c ./Parsing/parsing.c ./Get_next_line/get_next_line.c \
+	./Get_next_line/get_next_line_utils.c ./parsing/first_element.c ./parsing/utils_parsing.c \
+	./parsing/utils_parsing_2.c ./parsing/check_valid_elem.c ./parsing/check_map.c ./parsing/utils_parsing_3.c \
+	./parsing/check_element_f_c.c ./parsing/check_closed.c ./parsing/utils_check.c ./execute/textures.c \
         # <-- ADD BACKSLASH HERE
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 

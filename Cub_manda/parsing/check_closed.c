@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:22:00 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/08/19 18:26:13 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:25:24 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	check_closed(t_alloc *alloc, int flag, int i, int j)
 {
-	// int s = 0;
-	// while (alloc->map[s])	{
-	// 	printf("'%s'\n", alloc->map[s]);
-	// 	s++;
-	// }
-	// exit(0);
 	if (flag)
 	{
 		if (alloc->map[i][j] == '0')
