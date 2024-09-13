@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:22:00 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 12:25:24 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:54:02 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,14 @@ void	check_arround(t_alloc *alloc)
 				check_closed(alloc, 0, i, j);
 		}
 	}
+}
+
+int	ft_strlen_2d(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

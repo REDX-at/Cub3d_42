@@ -6,11 +6,11 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 15:18:41 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:57:31 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3d_bonus.h"
 
 void	check_imposter(t_alloc *alloc, int i, int j, int flag)
 {

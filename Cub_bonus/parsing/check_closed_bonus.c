@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_closed.c                                     :+:      :+:    :+:   */
+/*   check_closed_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:22:00 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/08/27 11:51:31 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:57:25 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3d_bonus.h"
 
 void	check_closed(t_alloc *alloc, int flag, int i, int j)
 {
