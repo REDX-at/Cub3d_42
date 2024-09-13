@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_element_f_c.c                                :+:      :+:    :+:   */
+/*   check_element_f_c_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:50:27 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/08/27 12:04:10 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:57:28 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3d_bonus.h"
 
 void	check_range_c(t_alloc *alloc, int storage)
 {

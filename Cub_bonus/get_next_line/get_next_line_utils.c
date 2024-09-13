@@ -6,11 +6,11 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:08:55 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/02 21:20:50 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:57:16 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3d_bonus.h"
 
 size_t	ft_strlen_next(char *s)
 {

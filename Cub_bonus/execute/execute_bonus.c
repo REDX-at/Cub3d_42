@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
+/*   execute_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:08:09 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/13 12:55:00 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:59:46 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3d_bonus.h"
+
 double ft_get_angle(char c)
 {
     if (c == 'N')
@@ -718,7 +719,6 @@ int ft_mouse_move(int x, int y, t_data *vars)
     return (0);
 }
 
-
 // 3skri
 void    ft_execute(t_alloc *alloc)
 {
@@ -735,6 +735,8 @@ void    ft_execute(t_alloc *alloc)
         printf("Failed to init mlx\n");
         exit(1);
     }
+    get_weapon(&vars);
+    get_texture(&vars);
     vars.win = mlx_new_window(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Cub3D");
     if (!vars.win)
     {
@@ -743,8 +745,6 @@ void    ft_execute(t_alloc *alloc)
     }
     vars.y = floor(vars.y * TILE) + (TILE / 2);
     vars.x = floor(vars.x * TILE) + (TILE / 2);
-    get_weapon(&vars);
-    get_texture(&vars);
     mlx_hook(vars.win, 17, 1, ft_close, &vars);
     mlx_hook(vars.win, 2, 1L << 0, ft_key, &vars);
     mlx_hook(vars.win, 3, 1L << 1, ft_rel, &vars);

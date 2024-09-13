@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_element.c                                    :+:      :+:    :+:   */
+/*   first_element_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:44:22 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/05 16:28:18 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:57:38 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cub3d_bonus.h"
 
 void	condition_loop(t_alloc *alloc, int *i, int *check)
 {
