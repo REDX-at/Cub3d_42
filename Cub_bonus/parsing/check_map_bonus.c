@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/08/27 11:36:47 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:18:41 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,57 @@ void	check_imposter(t_alloc *alloc, int i, int j, int flag)
 				&& alloc->map[i][j] != 'S' && alloc->map[i][j] != 'N'
 				&& alloc->map[i][j] != 'W'
 				&& alloc->map[i][j] != 'E' && alloc->map[i][j] != '\n'
-				&& alloc->map[i][j] != 'D')
+				&& alloc->map[i][j] != 'D' && alloc->map[i][j] != '\t')
 				print_err_exit("Map Invalid : Unknown symbol", alloc);
 			j++;
 		}
 	}
+}
+
+char	*ft_strnew(size_t size, char c)
+{
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	str = malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	while (i < size)
+	{
+		str[i] = c;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+void	fix_map(t_alloc *alloc)
+{
+	size_t	longest_line;
+	int	i;
+	char	*tmp;
+
+	i = 0;
+	longest_line = 0;
+	while (alloc->split[i])
+	{
+		if (ft_strlen(alloc->split[i]) > longest_line)
+			longest_line = ft_strlen(alloc->split[i]);
+		i++;
+	}
+	i = 0;
+	while (alloc->split[i])
+	{
+		if (ft_strlen(alloc->split[i]) < longest_line)
+		{
+			tmp = ft_strnew(longest_line - ft_strlen(alloc->split[i]), ' ');
+			free(alloc->split[i]);
+			alloc->split[i] = ft_strjoin(alloc->split[i], tmp);
+			free(tmp);
+		}
+		i++;
+	}	
 }
 
 void	check_valid_map(char *tmp, t_alloc *alloc)
@@ -52,6 +98,7 @@ void	check_valid_map(char *tmp, t_alloc *alloc)
 	i = 0;
 	free_2d(alloc->split);
 	alloc->split = ft_split(tmp, '\n');
+	fix_map(alloc);
 	store = i;
 	while (alloc->split[i])
 	{
@@ -111,6 +158,23 @@ void	check_last_line(char *tmp, t_alloc *alloc)
 	}
 }
 
+void checkmap(char **map, char cara){
+	int index = 0;
+	int incre = 0;
+	while (map[index]){
+		while (map[index][incre])
+			{
+				if (map[index][incre] == cara)
+					{
+						printf("Invalid Value \n");
+						exit(1);
+					}
+				incre++;
+			}
+			incre = 0;
+			index++ ;
+	}
+}
 void	check_map(t_alloc *alloc)
 {
 	int		i;
@@ -127,6 +191,7 @@ void	check_map(t_alloc *alloc)
 	check_imposter(alloc, -1, 0, 1);
 	join_double_pointer(alloc, &tmp, &tmp_2);
 	check_valid_map(tmp, alloc);
+	alloc->map = ft_strdup_2d(alloc->split);
 	check_player(tmp, alloc);
 	check_last_line(tmp, alloc);
 	free(tmp);

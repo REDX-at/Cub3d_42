@@ -6,11 +6,12 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:08:09 by mkibous           #+#    #+#             */
-/*   Updated: 2024/08/26 15:31:53 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 12:28:45 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
 double ft_get_angle(char c)
 {
     if (c == 'N')
@@ -23,6 +24,7 @@ double ft_get_angle(char c)
         return (M_PI);
     return (0);
 }
+
 void ft_get_player(t_data *vars, int i, int j)
 {
     if (vars->map[i][j] == 'N' || vars->map[i][j] == 'S' || vars->map[i][j] == 'E' || vars->map[i][j] == 'W')
@@ -32,6 +34,7 @@ void ft_get_player(t_data *vars, int i, int j)
         vars->map[i][j] = '0';
     }
 }
+
 void ft_get_size(t_data *vars)
 {
     int i;
@@ -58,11 +61,13 @@ void ft_get_size(t_data *vars)
     vars->width = max;
     vars->height = i;
 }
+
 int ft_close(t_data *vars)
 {
     mlx_destroy_window(vars->mlx, vars->win);
     exit(0);
 }
+
 int ft_check(t_data *vars, double x, double y)
 {
     int sx;
@@ -89,21 +94,25 @@ int ft_check(t_data *vars, double x, double y)
     }
     return (0);
 }
+
 void ft_w(t_data *vars)
 {
     vars->up_down_x = ((cos(vars->view)) * TILE / 25);
     vars->up_down_y = ((sin(vars->view)) * TILE / 25);
 }
+
 void ft_s(t_data *vars)
 {
     vars->up_down_x = cos((vars->view + M_PI)) * TILE / 25;
     vars->up_down_y = sin(vars->view + M_PI) * TILE / 25;
 }
+
 void ft_d(t_data *vars)
 {
     vars->lr_x = cos((vars->view + (M_PI / 2))) * TILE / 25;
     vars->lr_y = sin((vars->view + (M_PI / 2))) * TILE / 25;
 }
+
 void ft_a(t_data *vars)
 {
     vars->lr_x = cos((vars->view - (M_PI / 2))) * TILE / 25;
@@ -132,6 +141,7 @@ int ft_key(int key, t_data *vars)
         ft_close(vars);
     return (0);
 }
+
 int ft_rel(int key, t_data *vars)
 {
     if (key == 13 || key == 1)
@@ -157,7 +167,6 @@ int ft_rel(int key, t_data *vars)
     return (0);
 }
 
-// 3skri
 void my_pixel_put(t_data *vars, int x, int y, int color)
 {
     char *dst;
@@ -166,20 +175,8 @@ void my_pixel_put(t_data *vars, int x, int y, int color)
     *(unsigned int *)dst = color;
 }
 
-// void my_pixel_put2(t_data *vars, int x, int y, int color)
-// {
-//     char *dst;
-
-//     dst = vars->addr_map + (y * vars->size_lmap + x * (vars->bpp_map / 8));
-//     *(unsigned int *)dst = color;
-// }
 void ft_get_color(t_data *vars, int *color)
 {
-    // int n = 0x45818E;
-    // int s = 0x0101a1;
-    // int e = 0x007CBA;
-    // int w = 0x088da5;
-
     if (sin(vars->view) > 0)
     {
         if (cos(vars->view) > 0)
@@ -310,7 +307,6 @@ void ft_draw_ray(t_data *vars)
     int tex_x, tex_y;
     t_textures *texture;
 
-    // Calculate vertical and horizontal ray intersections
     get_view(vars);
     if (fabs(sin(vars->view)) > 1e-6)
         ft_vertical_ray(vars);
@@ -320,8 +316,6 @@ void ft_draw_ray(t_data *vars)
         ft_horisontale(vars);
     else
         vars->hc = -1;
-
-    // Determine which wall was hit
     if (vars->vc == -1)
         vars->c = vars->hc;
     else if (vars->hc == -1)
@@ -333,8 +327,6 @@ void ft_draw_ray(t_data *vars)
         else
             vars->c = vars->hc;
     }
-
-    // Set wall hit and texture based on direction
     if (vars->c == vars->vc)
     {
         vars->wallx = vars->vx / RESOLVE;
@@ -348,7 +340,6 @@ void ft_draw_ray(t_data *vars)
         {
             texture = vars->textures_south_struct;
         }
-        // texture = vars->textures_north_struct;
     }
     else
     {
@@ -363,42 +354,27 @@ void ft_draw_ray(t_data *vars)
         {
             texture = vars->textures_west_struct;
         }
-        // texture = vars->textures_north_struct;
     }
-
-    // Calculate wall height
     wall_height = (TILE / vars->c) * ((WINDOW_WIDTH / 2) / tan(POV / 2));
     if (wall_height < 0)
         wall_height = -wall_height;
     vars->med = (WINDOW_HEIGHT / 2);
     h = (vars->med - (wall_height / 2));
-
-    // Calculate texture x-coordinate (horizontal position on the wall)
     if (vars->wallhit == 1)
         vars->hit_index = (vars->wallx - (floor(vars->wallx / TILE) * TILE));
     else
         vars->hit_index = (vars->wally - (floor(vars->wally / TILE) * TILE));
-
     tex_x = fmod(vars->hit_index * texture->width / TILE, texture->width);
-    // tex_x = (iint)(vars->hit_ndex * texture->width / TILE);
-
-    // Draw the wall slice with the appropriate texture
     while (h <= vars->med + (wall_height / 2) && h < WINDOW_HEIGHT)
     {
         if (h < 0)
             h = 0;
         if (h >= WINDOW_HEIGHT)
             h = WINDOW_HEIGHT - 1;
-
-        // Calculate texture y-coordinate
         tex_y = (h - (vars->med - (wall_height / 2))) * texture->height / wall_height;
         if (tex_y >= texture->height)
             tex_y = texture->height - 1;
-
-        // Get color from the texture
         color = *(unsigned int *)(texture->addr + (tex_y * texture->line_lenght + tex_x * (texture->bits_per_pixel / 8)));
-
-        // Put pixel to image
         my_pixel_put(vars, vars->px_x, h, color);
         h++;
     }
@@ -448,98 +424,42 @@ void ft_color(t_data *vars)
     }
 }
 
-// 3skri
 int ft_player(t_data *vars)
 {
     double v;
     double tmp;
 
-    // Update player view angle
     vars->view += vars->view_speed;
-
-    // Update player position
     ft_add(vars);
     if (ft_check(vars, vars->up_down_x + vars->lr_x, vars->up_down_y + vars->lr_y) == 0)
     {
         vars->x += vars->up_down_x + vars->lr_x;
         vars->y += vars->up_down_y + vars->lr_y;
     }
-
-    // Destroy previous image if it exists
     if (vars->img)
         mlx_destroy_image(vars->mlx, vars->img);
-
-    // Create a new image
     vars->img = mlx_new_image(vars->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
     vars->addr = mlx_get_data_addr(vars->img, &vars->bpp, &vars->size_l, &vars->endian);
-
-    // Prepare for drawing
     tmp = vars->view + (POV / 2);
     v = vars->view;
     vars->view = v - (POV / 2);
 
     ft_color(vars);
-    // Draw each vertical slice of the view
     vars->px_x = 0;
     int n = 0;
     while (n < WINDOW_WIDTH)
     {
         vars->al = v - vars->view;
-        ft_draw_ray(vars);  // Modify this function to use textures
-
-        // Update view angle
+        ft_draw_ray(vars);
         vars->view += POV / WINDOW_WIDTH;
         n++;
     }
     vars->view = v;
-
-    // Render the image to the window
     mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
 
     return (0);
 }
 
-
-// void ft_wall(t_data *vars, int x, int y, int color)
-// {
-//     int i;
-//     int j;
-
-//     i = 0;
-//     while (i <= vars->map_tsize - 1)
-//     {
-//         j = 0;
-//         while (j <= vars->map_tsize - 1)
-//         {
-//             my_pixel_put2(vars, (x * vars->map_tsize) + i, (y  * vars->map_tsize) + j, color);
-//             j++;
-//         }
-//         i++;
-//     }
-// }
-
-// void ft_map(t_data *vars)
-// {
-//     int i;
-//     int j;
-
-//     i = vars->x / TILE  - (int)(MINIMAP_WIDTH / 2);
-//     j = vars->y / TILE - (int)(MINIMAP_WIDTH / 2);
-//     while (j < vars->height && j < (vars->y / TILE) + (MINIMAP_WIDTH / 2))
-//     {
-//         i = vars->x / TILE - (MINIMAP_WIDTH / 2);
-//         while (i < (vars->x / TILE) + (MINIMAP_WIDTH / 2) - 1)
-//         {
-//             if (i >= 0 && j >= 0 && j < vars->height && i < (int)ft_strlen(vars->map[j]) && vars->map[j][i] == '1')
-//                 ft_wall(vars, i - (floor(vars->x / TILE) - (MINIMAP_WIDTH / 2)), j - (floor(vars->y / TILE) - (MINIMAP_WIDTH / 2)), 0xFFFFFFF);
-//             i++;
-//         }
-//         j++;
-//     }
-//     ft_wall(vars,(MINIMAP_WIDTH / 2), (MINIMAP_WIDTH / 2), 0xFF0000);
-// }
-
-// 3skri
 void    ft_execute(t_alloc *alloc)
 {
     t_data vars;

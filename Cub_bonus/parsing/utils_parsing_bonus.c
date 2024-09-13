@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:28:37 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/08 01:23:00 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:04:31 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	check_digit(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]) && str[i][j] != '\n')
+			if (!ft_isdigit(str[i][j]) && str[i][j] != '\n' && str[i][j] != '\t')
 				return (0);
 			j++;
 		}
