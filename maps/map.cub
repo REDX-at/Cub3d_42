@@ -1,7 +1,5 @@
 SO ./textures/south_wall.xpm
 
-
-
 EA ./textures/east_wall.xpm
 
 NO ./textures/north_wall.xpm

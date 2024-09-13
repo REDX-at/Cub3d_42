@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:44 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/13 15:13:26 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:40:23 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ int    main(int argc, char **argv)
 	textures = malloc(sizeof(t_textures));
 	init_alloc(alloc, argv);
 	get_map(alloc);
-	printf("Map-------------\n");
 	ft_execute(alloc);
 	out_clean(alloc);
 	return (0);

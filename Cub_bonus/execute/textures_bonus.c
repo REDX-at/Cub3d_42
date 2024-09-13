@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 15:11:19 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:47:38 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@ void	load_weapon(t_data *data, t_weapon *weapon, char *path)
 void	get_weapon(t_data *data)
 {
 	data->weapon_official = init_weapon(data);
-	load_weapon(data, data->weapon_official, "../Cub_bonus/textures/weapon_texture/weapon.xpm");
+	load_weapon(data, data->weapon_official, "textures_bonus/weapon_texture/weapon.xpm");
 	data->weapon_zoom = init_weapon(data);
-	load_weapon(data, data->weapon_zoom, "../Cub_bonus/textures/weapon_texture/weapon_down.xpm");
+	load_weapon(data, data->weapon_zoom, "textures_bonus/weapon_texture/weapon_down.xpm");
 	data->weapon_shoot = init_weapon(data);
-	load_weapon(data, data->weapon_shoot, "../Cub_bonus/textures/weapon_texture/weapon_red.xpm");
+	load_weapon(data, data->weapon_shoot, "textures_bonus/weapon_texture/weapon_red.xpm");
 	data->weapon_offic_1 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_1, "../Cub_bonus/textures/weapon_texture/weapon_frame_1.xpm");
+	load_weapon(data, data->weapon_offic_1, "textures_bonus/weapon_texture/weapon_frame_1.xpm");
 	data->weapon_offic_2 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_2, "../Cub_bonus/textures/weapon_texture/weapon_frame_2.xpm");
+	load_weapon(data, data->weapon_offic_2, "textures_bonus/weapon_texture/weapon_frame_2.xpm");
 	data->weapon_offic_3 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_3, "../Cub_bonus/textures/weapon_texture/weapon_frame_3.xpm");
+	load_weapon(data, data->weapon_offic_3, "textures_bonus/weapon_texture/weapon_frame_3.xpm");
 	data->weapon_offic_4 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_4, "../Cub_bonus/textures/weapon_texture/weapon_frame_4.xpm");
+	load_weapon(data, data->weapon_offic_4, "textures_bonus/weapon_texture/weapon_frame_4.xpm");
 	data->weapon_offic_5 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_5, "../Cub_bonus/textures/weapon_texture/weapon_frame_5.xpm");
+	load_weapon(data, data->weapon_offic_5, "textures_bonus/weapon_texture/weapon_frame_5.xpm");
 }
 t_textures	*init_textures(t_data *data)
 {
@@ -70,7 +70,7 @@ t_textures	*init_textures(t_data *data)
 	data->texture_south = data->alloc->so_path;
 	data->texture_west = data->alloc->we_path;
 	data->texture_east = data->alloc->ea_path;
-	data->texture_door = ft_strdup("../Cub_bonus/textures/door.xpm");
+	data->texture_door = ft_strdup("textures_bonus/door.xpm");
 	t_textures *textures;
 	
 	textures = malloc(sizeof(t_textures));
@@ -115,7 +115,7 @@ void    get_texture(t_data *data)
 	data->textures_east_struct = init_textures(data);
 	load_textures(data, data->texture_east, data->textures_east_struct);
 	data->textures_black_screen = init_textures(data);
-	load_textures(data, "../Cub_bonus/textures/black_screen.xpm", data->textures_black_screen);
+	load_textures(data, "textures_bonus/black_screen.xpm", data->textures_black_screen);
 	data->textures_start_screen = init_textures(data);
-	load_textures(data, "../Cub_bonus/textures/start_screen.xpm", data->textures_start_screen);
+	load_textures(data, "textures_bonus/start_screen.xpm", data->textures_start_screen);
 }

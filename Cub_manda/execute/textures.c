@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 12:58:21 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:46:49 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	load_textures(t_data *data, char *path, t_textures *textures)
 	int	fd;
 
 	fd = open(path, O_RDONLY);
-	printf("path: %s\n", path);
 	if (fd < 0)
 		print_and_exit("Failed to open texture file");
 	close(fd);
