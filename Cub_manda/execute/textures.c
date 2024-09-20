@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 15:46:49 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:35:45 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	print_and_exit(char *message)
 
 t_textures	*init_textures(t_data *data)
 {
+	t_textures	*textures;
+
 	data->texture_north = data->alloc->no_path;
 	data->texture_south = data->alloc->so_path;
 	data->texture_west = data->alloc->we_path;
 	data->texture_east = data->alloc->ea_path;
-	t_textures *textures;
-	
 	textures = malloc(sizeof(t_textures));
 	if (!textures)
 		print_and_exit("Failed to allocate memory for textures");
@@ -47,15 +47,17 @@ void	load_textures(t_data *data, char *path, t_textures *textures)
 	if (fd < 0)
 		print_and_exit("Failed to open texture file");
 	close(fd);
-	textures->img = mlx_xpm_file_to_image(data->mlx, path, &textures->width, &textures->height);
+	textures->img = mlx_xpm_file_to_image(data->mlx, path,
+			&textures->width, &textures->height);
 	if (!textures->img)
 		print_and_exit("Failed to load texture image");
-	textures->addr = mlx_get_data_addr(textures->img, &textures->bits_per_pixel, &textures->line_lenght, &textures->endian);
+	textures->addr = mlx_get_data_addr(textures->img, &textures->bits_per_pixel,
+			&textures->line_lenght, &textures->endian);
 	if (!textures->addr)
 		print_and_exit("Failed to get texture address");
 }
 
-void    get_texture(t_data *data)
+void	get_texture(t_data *data)
 {
 	data->textures_north_struct = init_textures(data);
 	load_textures(data, data->texture_north, data->textures_north_struct);

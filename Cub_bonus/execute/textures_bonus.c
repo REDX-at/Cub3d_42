@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:57:07 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:19:38 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	print_and_exit(char *str)
 
 t_weapon	*init_weapon(t_data *data)
 {
-	(void)data;
-	t_weapon *weapon;
+	t_weapon	*weapon;
 
 	weapon = malloc(sizeof(t_weapon));
+	(void)data;
 	if (!weapon)
 		print_and_exit("Failed to allocate memory for weapon\n");
 	weapon->img_weap = NULL;
@@ -40,7 +40,8 @@ void	load_weapon(t_data *data, t_weapon *weapon, char *path)
 	if (fd < 0)
 		print_and_exit("Failed to open weapon texture file\n");
 	close(fd);
-	weapon->img_weap = mlx_xpm_file_to_image(data->mlx, path, &weapon->img_weap_width, &weapon->img_weap_height);
+	weapon->img_weap = mlx_xpm_file_to_image(data->mlx, path,
+			&weapon->img_weap_width, &weapon->img_weap_height);
 	if (!weapon->img_weap)
 		print_and_exit("Failed to load weapon texture\n");
 }
@@ -48,31 +49,40 @@ void	load_weapon(t_data *data, t_weapon *weapon, char *path)
 void	get_weapon(t_data *data)
 {
 	data->weapon_official = init_weapon(data);
-	load_weapon(data, data->weapon_official, "textures_bonus/weapon_texture/weapon.xpm");
+	load_weapon(data, data->weapon_official,
+		"textures_bonus/weapon_texture/weapon.xpm");
 	data->weapon_zoom = init_weapon(data);
-	load_weapon(data, data->weapon_zoom, "textures_bonus/weapon_texture/weapon_down.xpm");
+	load_weapon(data, data->weapon_zoom,
+		"textures_bonus/weapon_texture/weapon_down.xpm");
 	data->weapon_shoot = init_weapon(data);
-	load_weapon(data, data->weapon_shoot, "textures_bonus/weapon_texture/weapon_red.xpm");
+	load_weapon(data, data->weapon_shoot,
+		"textures_bonus/weapon_texture/weapon_red.xpm");
 	data->weapon_offic_1 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_1, "textures_bonus/weapon_texture/weapon_frame_1.xpm");
+	load_weapon(data, data->weapon_offic_1,
+		"textures_bonus/weapon_texture/weapon_frame_1.xpm");
 	data->weapon_offic_2 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_2, "textures_bonus/weapon_texture/weapon_frame_2.xpm");
+	load_weapon(data, data->weapon_offic_2,
+		"textures_bonus/weapon_texture/weapon_frame_2.xpm");
 	data->weapon_offic_3 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_3, "textures_bonus/weapon_texture/weapon_frame_3.xpm");
+	load_weapon(data, data->weapon_offic_3,
+		"textures_bonus/weapon_texture/weapon_frame_3.xpm");
 	data->weapon_offic_4 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_4, "textures_bonus/weapon_texture/weapon_frame_4.xpm");
+	load_weapon(data, data->weapon_offic_4,
+		"textures_bonus/weapon_texture/weapon_frame_4.xpm");
 	data->weapon_offic_5 = init_weapon(data);
-	load_weapon(data, data->weapon_offic_5, "textures_bonus/weapon_texture/weapon_frame_5.xpm");
+	load_weapon(data, data->weapon_offic_5,
+		"textures_bonus/weapon_texture/weapon_frame_5.xpm");
 }
+
 t_textures	*init_textures(t_data *data)
 {
+	t_textures	*textures;
+
 	data->texture_north = data->alloc->no_path;
 	data->texture_south = data->alloc->so_path;
 	data->texture_west = data->alloc->we_path;
 	data->texture_east = data->alloc->ea_path;
 	data->texture_door = ft_strdup("textures_bonus/door.xpm");
-	t_textures *textures;
-	
 	textures = malloc(sizeof(t_textures));
 	if (!textures)
 		print_and_exit("Failed to allocate memory for textures\n");
@@ -94,15 +104,17 @@ void	load_textures(t_data *data, char *path, t_textures *textures)
 	if (fd < 0)
 		print_and_exit("Failed to open texture file\n");
 	close(fd);
-	textures->img = mlx_xpm_file_to_image(data->mlx, path, &textures->width, &textures->height);
+	textures->img = mlx_xpm_file_to_image(data->mlx, path, &textures->width,
+			&textures->height);
 	if (!textures->img)
 		print_and_exit("Failed to load texture\n");
-	textures->addr = mlx_get_data_addr(textures->img, &textures->bits_per_pixel, &textures->line_lenght, &textures->endian);
+	textures->addr = mlx_get_data_addr(textures->img, &textures->bits_per_pixel,
+			&textures->line_lenght, &textures->endian);
 	if (!textures->addr)
 		print_and_exit("Failed to get texture address\n");
 }
 
-void    get_texture(t_data *data)
+void	get_texture(t_data *data)
 {
 	data->textures_door_struct = init_textures(data);
 	load_textures(data, data->texture_door, data->textures_door_struct);
@@ -115,7 +127,9 @@ void    get_texture(t_data *data)
 	data->textures_east_struct = init_textures(data);
 	load_textures(data, data->texture_east, data->textures_east_struct);
 	data->textures_black_screen = init_textures(data);
-	load_textures(data, "textures_bonus/black_screen.xpm", data->textures_black_screen);
+	load_textures(data, "textures_bonus/black_screen.xpm",
+		data->textures_black_screen);
 	data->textures_start_screen = init_textures(data);
-	load_textures(data, "textures_bonus/start_screen.xpm", data->textures_start_screen);
+	load_textures(data, "textures_bonus/start_screen.xpm",
+		data->textures_start_screen);
 }
