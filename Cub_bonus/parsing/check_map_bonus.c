@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:57:31 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/20 16:11:40 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ void	check_map(t_alloc *alloc)
 	check_imposter(alloc, -1, 0, 1);
 	join_double_pointer(alloc, &tmp, &tmp_2);
 	check_valid_map(tmp, alloc);
+	free_2d(alloc->map);
 	alloc->map = ft_strdup_2d(alloc->split);
 	check_player(tmp, alloc);
 	check_last_line(tmp, alloc);

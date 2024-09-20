@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:44 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/13 15:14:00 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/20 16:06:36 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	check_extension(char *str)
 
 int    main(int argc, char **argv)
 {
+	atexit(f);
 	t_alloc *alloc;
 	t_textures *textures;
 	if (argc != 2)

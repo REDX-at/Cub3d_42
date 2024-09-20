@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:08:09 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/20 15:19:06 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/20 16:12:49 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -762,13 +762,12 @@ int	mouse_up(int key, int x, int y, t_data *vars)
 
 int	ft_mouse_move(int x, int y, t_data *vars)
 {
-	static int	prev_x;
+	static int	prev_x = WINDOW_WIDTH / 2;
 	int			dx;
 
 	if (x < 0)
 		x = 0;
 	(void)y;
-	prev_x = WINDOW_WIDTH / 2;
 	if (x > WINDOW_WIDTH)
 		x = WINDOW_WIDTH;
 	dx = x - prev_x;

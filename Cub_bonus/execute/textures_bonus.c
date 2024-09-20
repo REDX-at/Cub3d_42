@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/19 16:19:38 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/20 16:13:38 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_textures	*init_textures(t_data *data)
 	data->texture_south = data->alloc->so_path;
 	data->texture_west = data->alloc->we_path;
 	data->texture_east = data->alloc->ea_path;
+	free(data->texture_door);
 	data->texture_door = ft_strdup("textures_bonus/door.xpm");
 	textures = malloc(sizeof(t_textures));
 	if (!textures)
