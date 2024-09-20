@@ -14,6 +14,7 @@ B_HEADER = cub3d_bonus.h
 LIBFT = Cub_manda/libft/libft.a
 OBJ = $(SRC:.c=.o)
 B_OBJ = $(B_SRC:.c=.o)
+#teteteteteet
 CC = cc
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
 all: make_libft $(NAME)
