@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:47 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/19 16:31:55 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/21 10:54:40 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,10 +149,34 @@ typedef struct s_textures
 }	t_textures;
 
 void		ft_execute(t_alloc *alloc);
-void		ft_map(t_data *vars);
+void		ft_mlx(t_data *vars);
 int			ft_player(t_data *vars);
+void		ft_imgs(t_data *vars);
+void		ft_color(t_data *vars);
+void		ft_add(t_data *vars);
 void		ft_draw_ray(t_data *vars);
+void		ft_calculate(t_data *vars, t_textures **texture, int *h,
+				int *wall_h);
+void		ft_find_texture(t_data *vars, t_textures **texture);
+void		ft_take_first_hit(t_data *vars);
+void		ft_horisontale(t_data *vars);
+void		ft_vertical_ray(t_data *vars);
 int			ft_check_wall(t_data *vars, double x, double y);
+void		get_view(t_data *vars);
+void		my_pixel_put(t_data *vars, int x, int y, int color);
+int			ft_rel(int key, t_data *vars);
+int			ft_key(int key, t_data *vars);
+void		ft_w(t_data *vars);
+void		ft_a(t_data *vars);
+void		ft_s(t_data *vars);
+void		ft_d(t_data *vars);
+int			ft_check(t_data *vars, double x, double y);
+void		ft_get_sign(int *sx, int *sy, double x, double y);
+int			ft_close(t_data *vars);
+void		ft_get_size(t_data *vars);
+void		ft_get_player(t_data *vars, int i, int j);
+double		ft_get_angle(char c);
+void		ft_map(t_data *vars);
 void		ft_wall(t_data *vars, int x, int y, int color);
 void		get_map(t_alloc *alloc);
 char		*get_next_line(int fd);
@@ -183,7 +207,7 @@ void		check_invalid_elem(t_alloc *alloc, int i, int j);
 void		check_closed(t_alloc *alloc, int flag, int i, int j);
 void		check_arround(t_alloc *alloc);
 t_textures	*init_textures(t_data *data);
-void		load_texture(t_textures *texture, char *path, void *mlx);
+void		load_textures(t_data *data, char *path, t_textures *textures);
 void		join_double_pointer(t_alloc *alloc, char **tmp, char **tmp_2);
 int			count_line(t_alloc *alloc);
 // clear
@@ -201,11 +225,5 @@ void		get_texture(t_data *data);
 // Map
 void		check_map(t_alloc *alloc);
 
-// start
-void		draw_button(t_data *data, int x, int y, int width, int height);
-int			mouse_click(int button, int x, int y, t_data *data);
-int			ft_key(int key, t_data *vars);
-int			ft_rel(int key, t_data *vars);
-int			ft_close(t_data *vars);
 
 #endif

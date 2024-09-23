@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 00:12:49 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/17 16:35:45 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/21 11:24:30 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,28 @@ void	get_texture(t_data *data)
 	load_textures(data, data->texture_west, data->textures_west_struct);
 	data->textures_east_struct = init_textures(data);
 	load_textures(data, data->texture_east, data->textures_east_struct);
+}
+
+void	ft_find_texture(t_data *vars, t_textures **texture)
+{
+	if (vars->c == vars->vc)
+	{
+		vars->wallx = vars->vx / RESOLVE;
+		vars->wally = vars->vy / RESOLVE;
+		vars->wallhit = 1;
+		if (sin(vars->view) > 0)
+			*texture = vars->textures_north_struct;
+		else
+			*texture = vars->textures_south_struct;
+	}
+	else
+	{
+		vars->wallx = vars->hx / RESOLVE;
+		vars->wally = vars->hy / RESOLVE;
+		vars->wallhit = 2;
+		if (cos(vars->view) > 0)
+			*texture = vars->textures_east_struct;
+		else
+			*texture = vars->textures_west_struct;
+	}
 }
