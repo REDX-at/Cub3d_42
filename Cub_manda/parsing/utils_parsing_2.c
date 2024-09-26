@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:55:11 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/08 01:24:24 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:34:38 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,9 @@ char	**convert_tabs_space(char **str)
 
 void	check_space_and_open(char *str, char *element)
 {
-	int	i;
 	int	fd;
 
-	i = 0;
 	fd = 0;
-	while (str[i])
-	{
-		if (str[i] == ' ')
-		{
-			free(str);
-			printf(RED"Error\n"W"Space in %s path\n", element);
-			exit(1);
-		}
-		i++;
-	}
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 	{

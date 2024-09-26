@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:47 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/21 10:54:40 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/23 20:18:58 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void		get_map(t_alloc *alloc);
 char		*get_next_line(int fd);
 char		*ft_strjoin_next(char *line, char *buff);
 char		*ft_strchr_next(char *s, int c);
-size_t		ft_strlen_next(char *s);
+size_t		ft_strlngn(char *s);
 char		*ft_getline(char *line);
 char		*readline(int fd, char *line);
 char		*ft_newline(char *line);
@@ -224,6 +224,5 @@ void		get_texture(t_data *data);
 
 // Map
 void		check_map(t_alloc *alloc);
-
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:47 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/21 10:37:36 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/23 20:19:47 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,7 +227,7 @@ void		get_map(t_alloc *alloc);
 char		*get_next_line(int fd);
 char		*ft_strjoin_next(char *line, char *buff);
 char		*ft_strchr_next(char *s, int c);
-size_t		ft_strlen_next(char *s);
+size_t		ft_strlngn(char *s);
 char		*ft_getline(char *line);
 char		*readline(int fd, char *line);
 char		*ft_newline(char *line);
@@ -235,6 +235,10 @@ void		loop_check_first(t_alloc *alloc, int *i, int *check, int count);
 void		check_first_elem(t_alloc *alloc);
 void		check_f_c(t_alloc *alloc);
 void		print_and_exit(char *str);
+void		check_valid_map(char *tmp, t_alloc *alloc);
+void		check_player(char *tmp, t_alloc *alloc);
+void		check_last_line(char *tmp, t_alloc *alloc);
+void		fix_map(t_alloc *alloc);
 // utils
 void		free_2d(char **str);
 int			ft_strlen_2d(char **str);

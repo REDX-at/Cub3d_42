@@ -6,13 +6,13 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:44 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/20 16:06:36 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/20 16:49:49 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void    init_alloc(t_alloc *alloc, char **argv)
+void	init_alloc(t_alloc *alloc, char **argv)
 {
 	alloc->file = NULL;
 	alloc->end_element = 0;
@@ -30,11 +30,6 @@ void    init_alloc(t_alloc *alloc, char **argv)
 	alloc->rgb_f = malloc(sizeof(int) * 3);
 	alloc->color_c = 0;
 	alloc->color_f = 0;
-}
-
-void	f()
-{
-	system("leaks cub3D");
 }
 
 void	print_stat(t_alloc *alloc, int i)
@@ -73,18 +68,19 @@ void	check_extension(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	if (str[i - 1] != 'b' || str[i - 2] != 'u' || str[i - 3] != 'c' || str[i - 4] != '.')
+	if (str[i - 1] != 'b' || str[i - 2] != 'u'
+		|| str[i - 3] != 'c' || str[i - 4] != '.')
 	{
 		printf(RED"Error\n"W"Invalid extension\n");
 		exit(1);
 	}
 }
 
-int    main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	atexit(f);
-	t_alloc *alloc;
-	t_textures *textures;
+	t_alloc		*alloc;
+	t_textures	*textures;
+
 	if (argc != 2)
 	{
 		printf(RED"Error\n"W"Invalid number of arguments\n");
@@ -95,8 +91,6 @@ int    main(int argc, char **argv)
 	textures = malloc(sizeof(t_textures));
 	init_alloc(alloc, argv);
 	get_map(alloc);
-	// print_stat(alloc, 0);
-	// start texture in ft_draw_ray in execute.c line 356 ***********
 	ft_execute(alloc);
 	out_clean(alloc);
 	return (0);

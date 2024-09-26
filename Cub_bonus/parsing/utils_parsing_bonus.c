@@ -6,35 +6,24 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:28:37 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:57:51 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:29:57 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_bonus.h"
 
-void	free_2d(char **str)
+char	*fill_skip(char *str, char *tmp, int i, int j)
 {
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-		return ;
-	while (str[i])
+	while (str[++i])
 	{
-		free(str[i]);
-		i++;
+		if (str[i] != ' ')
+		{
+			tmp[j] = str[i];
+			j++;
+		}
 	}
-	free(str);
-}
-
-int	ft_strlen_2d(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	tmp[j] = '\0';
+	return (tmp);
 }
 
 char	*skip_space(char *str, int flag)
@@ -60,15 +49,7 @@ char	*skip_space(char *str, int flag)
 		i = 2;
 	tmp = malloc(sizeof(char) * j + 1);
 	j = 0;
-	while (str[++i])
-	{
-		if (str[i] != ' ')
-		{
-			tmp[j] = str[i];
-			j++;
-		}
-	}
-	tmp[j] = '\0';
+	tmp = fill_skip(str, tmp, i, j);
 	return (tmp);
 }
 
@@ -100,7 +81,8 @@ int	check_digit(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]) && str[i][j] != '\n' && str[i][j] != '\t')
+			if (!ft_isdigit(str[i][j]) && str[i][j]
+				!= '\n' && str[i][j] != '\t')
 				return (0);
 			j++;
 		}

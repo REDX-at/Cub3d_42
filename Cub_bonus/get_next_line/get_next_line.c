@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:33:23 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:57:19 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:18:58 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_newline(char *line)
 		free(line);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen_next(line) - i) + 1);
+	str = (char *)malloc(sizeof(char) * (ft_strlngn(line) - i) + 1);
 	if (!str)
 	{
 		free(line);

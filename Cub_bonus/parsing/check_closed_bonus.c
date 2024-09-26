@@ -6,20 +6,26 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:22:00 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:57:25 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:12:30 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_bonus.h"
 
+void	check_closed_else(t_alloc *alloc, int i, int j)
+{
+	if (alloc->map[i][j] == alloc->player)
+	{
+		if (alloc->map[i][j + 1] == ' ' || alloc->map[i][j - 1] == ' '
+			|| alloc->map[i + 1][j] == ' ' || alloc->map[i - 1][j] == ' '
+			|| alloc->map[i][j + 1] == '\0' || alloc->map[i][j - 1] == '\0'
+			|| alloc->map[i + 1][j] == '\0' || alloc->map[i - 1][j] == '\0')
+			print_err_exit("Map Invalid : Map not closed", alloc);
+	}
+}
+
 void	check_closed(t_alloc *alloc, int flag, int i, int j)
 {
-	// int s = 0;
-	// while (alloc->map[s])	{
-	// 	printf("'%s'\n", alloc->map[s]);
-	// 	s++;
-	// }
-	// exit(0);
 	if (flag)
 	{
 		if (alloc->map[i][j] == '0')
@@ -40,16 +46,7 @@ void	check_closed(t_alloc *alloc, int flag, int i, int j)
 		}
 	}
 	else
-	{
-		if (alloc->map[i][j] == alloc->player)
-		{
-			if (alloc->map[i][j + 1] == ' ' || alloc->map[i][j - 1] == ' '
-				|| alloc->map[i + 1][j] == ' ' || alloc->map[i - 1][j] == ' '
-				|| alloc->map[i][j + 1] == '\0' || alloc->map[i][j - 1] == '\0'
-				|| alloc->map[i + 1][j] == '\0' || alloc->map[i - 1][j] == '\0')
-				print_err_exit("Map Invalid : Map not closed", alloc);
-		}
-	}
+		check_closed_else(alloc, i, j);
 }
 
 void	check_arround(t_alloc *alloc)
