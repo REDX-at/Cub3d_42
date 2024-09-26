@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/23 20:28:31 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:15:37 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_imposter(t_alloc *alloc, int i, int j, int flag)
 				&& alloc->map[i][j] != 'S' && alloc->map[i][j] != 'N'
 				&& alloc->map[i][j] != 'W'
 				&& alloc->map[i][j] != 'E' && alloc->map[i][j] != '\n'
-				&& alloc->map[i][j] != 'D' && alloc->map[i][j] != '\t')
+				&& alloc->map[i][j] != 'D')
 				print_err_exit("Map Invalid : Unknown symbol", alloc);
 		}
 	}

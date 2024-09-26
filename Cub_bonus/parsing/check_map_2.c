@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:15:48 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/23 20:25:23 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:15:33 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	check_valid_map(char *tmp, t_alloc *alloc)
 		while (alloc->split[i][j] && store == i)
 		{
 			if (alloc->split[i][j] != '1' && alloc->split[i][j]
-				!= ' ' && alloc->split[i][j] != '\t')
+				!= ' ')
 			{
 				free(tmp);
 				print_err_exit("Map not closed in first line", alloc);
@@ -75,7 +75,7 @@ void	check_last_line(char *tmp, t_alloc *alloc)
 	while (alloc->map[len - 1][i])
 	{
 		if (alloc->map[len -1][i] != '1' && alloc->map[len -1][i]
-			!= ' ' && alloc->map[len -1][i] != '\t')
+			!= ' ')
 		{
 			free(tmp);
 			print_err_exit("Map Invalid : Map not closed in last line", alloc);

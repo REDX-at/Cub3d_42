@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:44:27 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/08 01:21:35 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/09/26 18:23:15 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	get_map(t_alloc *alloc)
 	char	*line;
 	int		i;
 	int		j;
-	char	**tmp;
 
 	(1) && (i = 0, j = 0);
 	i = count_line(alloc);
@@ -96,10 +95,6 @@ void	get_map(t_alloc *alloc)
 	i = 0;
 	fill_file(alloc, line, i, fd);
 	close(fd);
-	tmp = ft_strdup_2d(alloc->file);
-	free_2d(alloc->file);
-	alloc->file = convert_tabs_space(tmp);
-	free_2d(tmp);
 	check_first_elem(alloc);
 	element_map(alloc, 0, 0);
 	check_f_c(alloc);
