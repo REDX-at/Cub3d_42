@@ -43,15 +43,4 @@ fclean: clean
 	rm -f $(NAME) $(B_NAME)
 re: fclean all
 
-push:
-	@read -p "Enter commit message: " commit_message; \
-	git add .; \
-	git commit -m "$$commit_message"; \
-	git push;
-
-pull:
-	@git stash
-	@git pull
-	@git stash pop
-
 .PHONY: clean make_libft

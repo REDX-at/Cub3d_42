@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   weapon.c                                           :+:      :+:    :+:   */
+/*   weapon_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:33:09 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/20 16:35:29 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/09/27 18:10:08 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,12 @@ void	ft_weapon(t_data *vars)
 		vars->weap_x = WINDOW_WIDTH - vars->weapon_official->img_weap_width;
 		vars->weap_y = WINDOW_HEIGHT
 			- vars->weapon_official->img_weap_height;
-		if (vars->weapon_index == 1)
-		{
-			ft_delay_weapon(vars);
-			if (vars->delay_weapon >= 30 && vars->delay_weapon < 36)
-				mlx_put_image_to_window(vars->mlx, vars->win,
-					vars->weapon_offic_5->img_weap, vars->weap_x,
-					vars->weap_y);
-			vars->delay_weapon++;
-		}
-		else
+		ft_delay_weapon(vars);
+		if (vars->delay_weapon >= 30 && vars->delay_weapon < 36)
 			mlx_put_image_to_window(vars->mlx, vars->win,
-				vars->weapon_official->img_weap, vars->weap_x,
+				vars->weapon_offic_5->img_weap, vars->weap_x,
 				vars->weap_y);
+		vars->delay_weapon++;
 	}
 }
 
