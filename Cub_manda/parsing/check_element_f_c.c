@@ -6,11 +6,20 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:50:27 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/07 00:29:31 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/02 21:38:09 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+int	ft_strlen_split(char **str)
+{
+	int i = 0;
+
+	while (str[i])
+		i++;
+	return (i);
+}
 
 void	check_range_c(t_alloc *alloc, int storage)
 {
@@ -56,6 +65,8 @@ void	check_celling_color(t_alloc *alloc, int storage, int i)
 		alloc->split = ft_split(alloc->tmp, ',');
 		if (!alloc->split)
 			print_err_exit("Split Error", alloc);
+		if (ft_strlen_split(alloc->split) != 3)
+			print_err_exit("C : Usage [0,0,0]", alloc);
 		if (check_digit(alloc->split) == 0)
 			print_err_exit("C : Digit only", alloc);
 		storage = ft_atoi(alloc->split[0], 0);
@@ -77,6 +88,8 @@ void	check_floor_color(t_alloc *alloc, int storage, int i)
 		alloc->split = ft_split(alloc->tmp, ',');
 		if (!alloc->split)
 			print_err_exit("Split Error", alloc);
+		if (ft_strlen_split(alloc->split) != 3)
+			print_err_exit("F : Usage [0,0,0]", alloc);
 		if (check_digit(alloc->split) == 0)
 			print_err_exit("F : Digit only", alloc);
 		storage = ft_atoi(alloc->split[0], 0);
