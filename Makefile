@@ -15,7 +15,9 @@ B_SRC = Cub_bonus/main_bonus.c Cub_bonus/execute/execute_bonus.c Cub_bonus/Parsi
 CFLAGS = -Wall -Wextra -Werror
 HEADER = Cub_manda/cub3d.h
 B_HEADER = Cub_bonus/cub3d_bonus.h
-LIBFT = Cub_manda/libft/libft.a
+L_HEADER = Cub_manda/libft/libft.h
+LB_HEADER = Cub_bonus/libft/libft.h
+LIBFT = Cub_manda/libft/libft.a 
 OBJ = $(SRC:.c=.o)
 B_OBJ = $(B_SRC:.c=.o)
 CC = cc
@@ -25,19 +27,20 @@ bonus: make_libft $(B_NAME)
 
 make_libft:
 	@cd Cub_manda/libft && make
-	@echo "libft created"
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLXFLAGS) -o $(NAME)
+	@echo "libft created"
 	@echo "Cub3D created"
-$(B_NAME): $(B_OBJ)
+$(B_NAME): $(B_OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(B_OBJ) $(LIBFT) $(MLXFLAGS) -o $(B_NAME)
+	@echo "libft created"
 	@echo "Cub3D_bonus created"
 
-Cub_manda/%.o: Cub_manda/%.c $(HEADER)
+Cub_manda/%.o: Cub_manda/%.c $(HEADER) $(L_HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-Cub_bonus/%.o: Cub_bonus/%.c $(B_HEADER)
+Cub_bonus/%.o: Cub_bonus/%.c $(B_HEADER) $(LB_HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

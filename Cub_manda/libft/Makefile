@@ -19,10 +19,10 @@ OBJ =   $(M_SRCS:.c=.o)
 all: $(NAME) 
 
 $(NAME): $(OBJ)
-	@$(LIBC) $(NAME) $(OBJ)
+	$(LIBC) $(NAME) $(OBJ)
 
 %.o : %.c libft.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)
