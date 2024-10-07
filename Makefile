@@ -12,9 +12,9 @@ B_SRC = Cub_bonus/main_bonus.c Cub_bonus/execute/execute_bonus.c Cub_bonus/Parsi
 	Cub_bonus/parsing/check_element_f_c_bonus.c Cub_bonus/parsing/check_closed_bonus.c Cub_bonus/execute/textures_bonus.c Cub_bonus/parsing/utils_check_bonus.c \
 	Cub_bonus/execute/pressing_key_bonus.c Cub_bonus/execute/mouvment_bonus.c Cub_bonus/execute/weapon_bonus.c Cub_bonus/execute/ray_bonus.c Cub_bonus/execute/draw_bonus.c\
 	Cub_bonus/execute/mouse_bonus.c Cub_bonus/execute/player_bonus.c Cub_bonus/execute/check_bonus.c Cub_bonus/execute/textures_utils_bonus.c Cub_bonus/parsing/check_map_2.c
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
-HEADER = cub3d.h
-B_HEADER = cub3d_bonus.h
+CFLAGS = -Wall -Wextra -Werror
+HEADER = Cub_manda/cub3d.h
+B_HEADER = Cub_bonus/cub3d_bonus.h
 LIBFT = Cub_manda/libft/libft.a
 OBJ = $(SRC:.c=.o)
 B_OBJ = $(B_SRC:.c=.o)
@@ -28,13 +28,18 @@ make_libft:
 	@echo "libft created"
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLXFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLXFLAGS) -o $(NAME)
 	@echo "Cub3D created"
 $(B_NAME): $(B_OBJ)
-	@$(CC) $(CFLAGS) $(B_OBJ) $(LIBFT) $(MLXFLAGS) -o $(B_NAME)
+	$(CC) $(CFLAGS) $(B_OBJ) $(LIBFT) $(MLXFLAGS) -o $(B_NAME)
 	@echo "Cub3D_bonus created"
-%.o: %.c $(HEADER) $(B_HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
+
+Cub_manda/%.o: Cub_manda/%.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Cub_bonus/%.o: Cub_bonus/%.c $(B_HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	rm -f $(OBJ) $(B_OBJ)
 fclean: clean
