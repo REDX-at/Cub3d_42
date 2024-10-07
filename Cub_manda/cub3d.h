@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:47 by mkibous           #+#    #+#             */
-/*   Updated: 2024/10/07 14:35:55 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:10:28 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,7 @@ t_textures	*init_textures(t_data *data);
 void		load_textures(t_data *data, char *path, t_textures *textures);
 void		join_double_pointer(t_alloc *alloc, char **tmp, char **tmp_2);
 int			count_line(t_alloc *alloc);
+void		fix_map(t_alloc *alloc);
 // clear
 void		out_clean(t_alloc *alloc);
 

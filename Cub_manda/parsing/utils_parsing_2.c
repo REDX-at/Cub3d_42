@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:55:11 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/23 20:34:38 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:00:29 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_2d(char **str)
 	i = 0;
 	while (str[i])
 	{
-		printf("%s", str[i]);
+		printf("|%s|\n", str[i]);
 		i++;
 	}
 }

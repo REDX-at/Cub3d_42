@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/26 18:45:03 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 21:10:01 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,7 @@ void	check_map(t_alloc *alloc)
 	check_player(tmp, alloc);
 	check_last_line(tmp, alloc);
 	free(tmp);
+	fix_map(alloc);
+	print_2d(alloc->map);
 	check_arround(alloc);
 }
