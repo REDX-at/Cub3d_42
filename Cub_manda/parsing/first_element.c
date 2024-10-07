@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:44:22 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/06/05 16:28:18 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:15:08 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,14 @@ void	check_first_elem(t_alloc *alloc)
 		print_err_exit("Element : Duplicate", alloc);
 	if (check < 6)
 		print_err_exit("Element : Missing element", alloc);
+}
+
+int	ft_strlen_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

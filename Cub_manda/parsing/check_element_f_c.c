@@ -6,20 +6,11 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:50:27 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/10/02 21:38:09 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:38:32 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-int	ft_strlen_split(char **str)
-{
-	int i = 0;
-
-	while (str[i])
-		i++;
-	return (i);
-}
 
 void	check_range_c(t_alloc *alloc, int storage)
 {

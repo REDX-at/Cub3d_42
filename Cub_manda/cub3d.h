@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:47 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/23 20:18:58 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:13:10 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,6 +205,7 @@ char		**ft_strdup_2d(char **str);
 void		print_element_map(t_alloc *alloc);
 void		check_invalid_elem(t_alloc *alloc, int i, int j);
 void		check_closed(t_alloc *alloc, int flag, int i, int j);
+int			ft_strlen_split(char **str);
 void		check_arround(t_alloc *alloc);
 t_textures	*init_textures(t_data *data);
 void		load_textures(t_data *data, char *path, t_textures *textures);

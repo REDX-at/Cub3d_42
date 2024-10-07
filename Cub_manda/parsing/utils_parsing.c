@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:28:37 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:53:35 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:32:53 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*while_skip_space(char *str, char *tmp, int i, int j)
 	j = 0;
 	while (str[++i])
 	{
-		if (str[i] != ' ')
+		if (str[i] != ' ' && str[i] != '\t')
 		{
 			tmp[j] = str[i];
 			j++;
@@ -56,7 +56,7 @@ char	*skip_space(char *str, int flag)
 		i = 3;
 	while (str[i])
 	{
-		if (str[i] != ' ')
+		if (str[i] != ' ' && str[i] != '\t')
 			j++;
 		i++;
 	}

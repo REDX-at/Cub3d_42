@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 18:22:35 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/23 20:40:53 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:36:26 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	check_element_we(t_alloc *alloc, int i)
 		free(alloc->tmp);
 		alloc->tmp = ft_substr(alloc->element[i], k, storage);
 		check_space_and_open(alloc->tmp, "WE");
-		if (ft_strlen(alloc->tmp) < 2)
+		if (ft_strlen(alloc->tmp) <= 2)
 			print_err_exit("WE : Path too short", alloc);
 		free(alloc->we_path);
 		alloc->we_path = ft_strdup(alloc->tmp);
@@ -80,7 +80,7 @@ void	check_element_no(t_alloc *alloc, int i)
 		free(alloc->tmp);
 		alloc->tmp = ft_substr(alloc->element[i], k, storage);
 		check_space_and_open(alloc->tmp, "NO");
-		if (ft_strlen(alloc->tmp) < 2)
+		if (ft_strlen(alloc->tmp) <= 2)
 			print_err_exit("NO : Path too short", alloc);
 		free(alloc->no_path);
 		alloc->no_path = ft_strdup(alloc->tmp);
@@ -109,7 +109,7 @@ void	check_element_so(t_alloc *alloc, int i)
 		free(alloc->tmp);
 		alloc->tmp = ft_substr(alloc->element[i], k, storage);
 		check_space_and_open(alloc->tmp, "SO");
-		if (ft_strlen(alloc->tmp) < 2)
+		if (ft_strlen(alloc->tmp) <= 2)
 			print_err_exit("SO : Path too short", alloc);
 		free(alloc->so_path);
 		alloc->so_path = ft_strdup(alloc->tmp);
@@ -138,7 +138,7 @@ void	check_element_ea(t_alloc *alloc, int i)
 		free(alloc->tmp);
 		alloc->tmp = ft_substr(alloc->element[i], k, storage);
 		check_space_and_open(alloc->tmp, "EA");
-		if (ft_strlen(alloc->tmp) < 2)
+		if (ft_strlen(alloc->tmp) <= 2)
 			print_err_exit("EA : Path too short", alloc);
 		free(alloc->ea_path);
 		alloc->ea_path = ft_strdup(alloc->tmp);

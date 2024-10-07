@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:50:27 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:57:28 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/07 11:14:40 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	check_celling_color(t_alloc *alloc, int storage, int i)
 		alloc->split = ft_split(alloc->tmp, ',');
 		if (!alloc->split)
 			print_err_exit("Split Error", alloc);
+		if (ft_strlen_split(alloc->split) != 3)
+			print_err_exit("C : Usage [0,0,0]", alloc);
 		if (check_digit(alloc->split) == 0)
 			print_err_exit("C : Digit only", alloc);
 		storage = ft_atoi(alloc->split[0], 0);
@@ -77,6 +79,8 @@ void	check_floor_color(t_alloc *alloc, int storage, int i)
 		alloc->split = ft_split(alloc->tmp, ',');
 		if (!alloc->split)
 			print_err_exit("Split Error", alloc);
+		if (ft_strlen_split(alloc->split) != 3)
+			print_err_exit("F : Usage [0,0,0]", alloc);
 		if (check_digit(alloc->split) == 0)
 			print_err_exit("F : Digit only", alloc);
 		storage = ft_atoi(alloc->split[0], 0);
