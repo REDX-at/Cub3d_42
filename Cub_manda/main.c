@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:44 by mkibous           #+#    #+#             */
-/*   Updated: 2024/10/07 21:08:03 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:51:47 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,17 @@ void	check_extension(char *str)
 	}
 }
 
+void	ft_ssclose(void)
+{
+	system("leaks cub3D");
+}
+
 int	main(int argc, char **argv)
 {
 	t_alloc		*alloc;
 	t_textures	*textures;
 
+	atexit(ft_ssclose);
 	if (argc != 2)
 	{
 		printf(RED"Error\n"W"Invalid number of arguments\n");

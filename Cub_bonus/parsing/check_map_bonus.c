@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/26 18:15:37 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:13:22 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,29 @@ char	*ft_strnew(size_t size, char c)
 
 void	fix_map(t_alloc *alloc)
 {
-	size_t	longest_line;
-	int		i;
-	char	*tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
-	i = 0;
-	longest_line = 0;
-	while (alloc->split[i])
+	(1) && (i = -1, tmp = 0, j = 0);
+	while (alloc->map[++i])
 	{
-		if (ft_strlen(alloc->split[i]) > longest_line)
-			longest_line = ft_strlen(alloc->split[i]);
-		i++;
+		j = ft_strlen(alloc->map[i]);
+		if (j > tmp)
+			tmp = j;
 	}
-	i = 0;
-	while (alloc->split[i])
+	i = -1;
+	while (alloc->map[++i])
 	{
-		if (ft_strlen(alloc->split[i]) < longest_line)
+		j = ft_strlen(alloc->map[i]);
+		while (j < tmp)
 		{
-			tmp = ft_strnew(longest_line - ft_strlen(alloc->split[i]), ' ');
-			free(alloc->split[i]);
-			alloc->split[i] = ft_strjoin(alloc->split[i], tmp);
-			free(tmp);
+			free(alloc->tmp);
+			alloc->tmp = ft_strdup(alloc->map[i]);
+			free(alloc->map[i]);
+			alloc->map[i] = ft_strjoin(alloc->tmp, " ");
+			j++;
 		}
-		i++;
 	}
 }
 
@@ -108,5 +108,6 @@ void	check_map(t_alloc *alloc)
 	check_player(tmp, alloc);
 	check_last_line(tmp, alloc);
 	free(tmp);
+	fix_map(alloc);
 	check_arround(alloc);
 }
