@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/10/11 15:13:19 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:59:55 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ void	check_imposter(t_alloc *alloc, int i, int j, int flag)
 				print_err_exit("Map Invalid : Map With just new line", alloc);
 		}
 		flag = 0;
-		if (alloc->map[i][j] == '\n')
-			print_err_exit("Map Invalid : New line detected", alloc);
-		while (alloc->map[i][j])
+		if (alloc->map[i][0] == '\n')
 		{
-			if (alloc->map[i][j] != '1' && alloc->map[i][j] != '0'
-				&& alloc->map[i][j] != ' '
-				&& alloc->map[i][j] != 'S' && alloc->map[i][j] != 'N'
-				&& alloc->map[i][j] != 'W'
-				&& alloc->map[i][j] != 'E' && alloc->map[i][j] != '\n')
-				print_err_exit("Map Invalid : Unknown symbol", alloc);
-			j++;
+			alloc->k = i;
+			if (alloc->map[alloc->k] != NULL)
+				while (alloc->map[alloc->k] != NULL
+					&& alloc->map[alloc->k][0] == '\n')
+					alloc->k++;
+			if (alloc->map[alloc->k] != NULL)
+				print_err_exit("Map Invalid : New line detected", alloc);
 		}
+		condition_impostert(alloc, i, j);
 	}
 }
 

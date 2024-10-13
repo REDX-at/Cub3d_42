@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:22:00 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/09/13 16:54:02 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:57:22 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,21 @@ int	ft_strlen_2d(char **str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+void	condition_impostert(t_alloc *alloc, int i, int j)
+{
+	if (alloc->map[i] != NULL)
+	{
+		while (alloc->map[i][j])
+		{
+			if (alloc->map[i][j] != '1' && alloc->map[i][j] != '0'
+				&& alloc->map[i][j] != ' '
+				&& alloc->map[i][j] != 'S' && alloc->map[i][j] != 'N'
+				&& alloc->map[i][j] != 'W'
+				&& alloc->map[i][j] != 'E' && alloc->map[i][j] != '\n')
+				print_err_exit("Map Invalid : Unknown symbol", alloc);
+			j++;
+		}
+	}
 }

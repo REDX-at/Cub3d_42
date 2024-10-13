@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:44 by mkibous           #+#    #+#             */
-/*   Updated: 2024/09/20 16:50:28 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:47:31 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_alloc(t_alloc *alloc, char **argv)
 	alloc->rgb_f = malloc(sizeof(int) * 3);
 	alloc->color_c = 0;
 	alloc->color_f = 0;
+	alloc->k = 0;
 }
 
 void	print_stat(t_alloc *alloc, int i)

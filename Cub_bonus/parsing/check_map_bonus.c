@@ -6,11 +6,27 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:11:50 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/10/11 15:13:22 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:56:14 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_bonus.h"
+
+void	check_new_line(t_alloc *alloc, int i)
+{
+	if (alloc->map[i][0] == '\n')
+	{
+		alloc->k = i;
+		if (alloc->map[alloc->k] != NULL)
+		{
+			while (alloc->map[alloc->k] != NULL
+				&& alloc->map[alloc->k][0] == '\n')
+				alloc->k++;
+		}
+		if (alloc->map[alloc->k] != NULL)
+			print_err_exit("Map Invalid : New line detected", alloc);
+	}
+}
 
 void	check_imposter(t_alloc *alloc, int i, int j, int flag)
 {
@@ -26,8 +42,7 @@ void	check_imposter(t_alloc *alloc, int i, int j, int flag)
 				print_err_exit("Map Invalid : Map With just new line", alloc);
 		}
 		flag = 0;
-		if (alloc->map[i][j] == '\n')
-			print_err_exit("Map Invalid : New line detected", alloc);
+		check_new_line(alloc, i);
 		while (alloc->map[i][++j])
 		{
 			if (alloc->map[i][j] != '1' && alloc->map[i][j] != '0'

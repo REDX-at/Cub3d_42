@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:06:47 by mkibous           #+#    #+#             */
-/*   Updated: 2024/10/07 14:35:46 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:47:19 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ typedef struct s_data
 
 typedef struct s_alloc
 {
+	int		k;
 	char	**file;
 	int		end_element;
 	char	**element;
